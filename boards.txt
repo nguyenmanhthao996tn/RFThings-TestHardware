@@ -102,6 +102,107 @@ RFThings-BoardTestLR1110.menu.opt.os.build.flags.ldspecs=--specs=nano.specs
 # RFThings-BoardTestLR1110.menu.opt.o2.build.flags.ldspecs=
 
 
+# RFThings Gemini Board
+# ---------------------------------------
+RFT-Gemini.name=RFT-Gemini
+RFT-Gemini.vid.0=0x1209
+RFT-Gemini.pid.0=0x6667
+
+RFT-Gemini.upload.tool=stm32l4_dfu
+RFT-Gemini.upload.protocol=dfu
+RFT-Gemini.upload.maximum_size=1032192
+RFT-Gemini.upload.use_1200bps_touch=true
+RFT-Gemini.upload.wait_for_upload_port=false
+RFT-Gemini.upload.native_usb=false
+
+RFT-Gemini.build.mcu=cortex-m4
+RFT-Gemini.build.f_cpu=80000000L
+RFT-Gemini.build.board=STM32L4_LS200
+RFT-Gemini.build.arch=STM32L4
+RFT-Gemini.build.core=stm32l4
+RFT-Gemini.build.vid=0x1209
+RFT-Gemini.build.pid=0x6667
+RFT-Gemini.build.did=0xffff
+RFT-Gemini.build.usb_manufacturer="RFThings"
+RFT-Gemini.build.usb_product="Gemini"
+RFT-Gemini.build.extra_flags=-DSTM32L476xx -D__FPU_PRESENT=1 -march=armv7e-m -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mabi=aapcs -mslow-flash-data -fsingle-precision-constant {build.usb_flags} {build.dosfs_flags} {build.region_flags} {build.version_flags}
+RFT-Gemini.build.ldscript=linker_scripts/STM32L476RE_FLASH.ld
+RFT-Gemini.build.openocdscript=openocd_scripts/stm32l476re_dragonfly.cfg
+RFT-Gemini.build.variant=STM32L476RE-LS200-rft
+RFT-Gemini.build.variant_system_libs="-L{runtime.platform.path}/system/STM32L4xx/Lib" "-L{runtime.platform.path}/system/CMSIS/Lib" -lstm32l476 -larm_cortexM4lf_math
+RFT-Gemini.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L4xx/Include" "-I{runtime.platform.path}/system/STM32L4xx/Include" 
+
+RFT-Gemini.menu.usb.cdc=Serial
+RFT-Gemini.menu.usb.cdc.build.usb_type=USB_TYPE_CDC
+RFT-Gemini.menu.usb.cdc_msc=Serial + Mass Storage
+RFT-Gemini.menu.usb.cdc_msc.build.usb_type=USB_TYPE_CDC_MSC
+# RFT-Gemini.menu.usb.cdc_hid=Serial + Keyboard + Mouse
+# RFT-Gemini.menu.usb.cdc_hid.build.usb_type=USB_TYPE_CDC_HID
+# RFT-Gemini.menu.usb.cdc_msc_hid=Serial + Mass Storage + Keyboard + Mouse
+# RFT-Gemini.menu.usb.cdc_msc_hid.build.usb_type=USB_TYPE_CDC_MSC_HID
+RFT-Gemini.menu.usb.none=No USB (low-power)
+RFT-Gemini.menu.usb.none.build.usb_type=USB_TYPE_NONE
+
+RFT-Gemini.menu.region_flags.EU868=Europe 868
+RFT-Gemini.menu.region_flags.EU868.build.region=R_EU868
+RFT-Gemini.menu.region_flags.US915=US 915
+RFT-Gemini.menu.region_flags.US915.build.region=R_US915
+RFT-Gemini.menu.region_flags.AU915=AU 915
+RFT-Gemini.menu.region_flags.AU915.build.region=R_AU915
+RFT-Gemini.menu.region_flags.AS923=Asia AS923
+RFT-Gemini.menu.region_flags.AS923.build.region=R_AS923
+RFT-Gemini.menu.region_flags.IN865=India 865
+RFT-Gemini.menu.region_flags.IN865.build.region=R_IN865
+
+RFT-Gemini.build.dosfs_sdcard=0
+RFT-Gemini.build.dosfs_sflash=0
+
+RFT-Gemini.menu.version_flags.V3=V3
+RFT-Gemini.menu.version_flags.V3.build.version=BOARD_LS200_V3
+RFT-Gemini.menu.version_flags.V4=V4
+RFT-Gemini.menu.version_flags.V4.build.version=BOARD_LS200_V4
+RFT-Gemini.menu.version_flags.V4.build.dosfs_sdcard=0
+RFT-Gemini.menu.version_flags.V4.build.dosfs_sflash=0
+RFT-Gemini.menu.version_flags.V2=V2
+RFT-Gemini.menu.version_flags.V2.build.version=BOARD_LS200_V2
+
+RFT-Gemini.menu.speed.80=80 MHz
+RFT-Gemini.menu.speed.80.build.f_cpu=80000000L
+RFT-Gemini.menu.speed.72=72 MHz
+RFT-Gemini.menu.speed.72.build.f_cpu=72000000L
+RFT-Gemini.menu.speed.64=64 MHz
+RFT-Gemini.menu.speed.64.build.f_cpu=64000000L
+RFT-Gemini.menu.speed.48=48 MHz
+RFT-Gemini.menu.speed.48.build.f_cpu=48000000L
+RFT-Gemini.menu.speed.32=32 MHz
+RFT-Gemini.menu.speed.32.build.f_cpu=32000000L
+RFT-Gemini.menu.speed.24=24 MHz
+RFT-Gemini.menu.speed.24.build.f_cpu=24000000L
+RFT-Gemini.menu.speed.16=16 MHz
+RFT-Gemini.menu.speed.16.build.f_cpu=16000000L
+RFT-Gemini.menu.speed.8=8 MHz (No USB)
+RFT-Gemini.menu.speed.8.build.f_cpu=8000000L
+RFT-Gemini.menu.speed.4=4 MHz (No USB)
+RFT-Gemini.menu.speed.4.build.f_cpu=4000000L
+RFT-Gemini.menu.speed.2=2 MHz (No USB)
+RFT-Gemini.menu.speed.2.build.f_cpu=2000000L
+RFT-Gemini.menu.speed.1=1 MHz (No USB)
+RFT-Gemini.menu.speed.1.build.f_cpu=1000000L
+
+RFT-Gemini.menu.opt.o3=Fastest
+RFT-Gemini.menu.opt.o3.build.flags.optimize=-O3
+RFT-Gemini.menu.opt.o3.build.flags.ldspecs=
+RFT-Gemini.menu.opt.os=Smallest Code
+RFT-Gemini.menu.opt.os.build.flags.optimize=-Os
+RFT-Gemini.menu.opt.os.build.flags.ldspecs=--specs=nano.specs
+# RFT-Gemini.menu.opt.o1=Fast
+# RFT-Gemini.menu.opt.o1.build.flags.optimize=-O1
+# RFT-Gemini.menu.opt.o1.build.flags.ldspecs=
+# RFT-Gemini.menu.opt.o2=Faster
+# RFT-Gemini.menu.opt.o2.build.flags.optimize=-O2
+# RFT-Gemini.menu.opt.o2.build.flags.ldspecs=
+
+
 # RFThings Design KIT (Dummy)
 # ---------------------------------------
 dummy.name=RFThings Design KIT
